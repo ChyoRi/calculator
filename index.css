@@ -89,9 +89,15 @@ button {
   background-color: #313131;
 }
 
-.wrap .number-panel button.operator-button {
+.wrap .number-panel button.operator-button, .assign-button {
   color: #fff;
   background-color: #E69435;
+}
+
+.wrap .number-panel button.operator-button.active,
+.wrap .number-panel button.operator-button:hover {
+  background-color: #fff;
+  color: #e69435;
 }
 
 .wrap .number-panel button:hover {
