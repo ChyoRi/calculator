@@ -36,24 +36,6 @@ const numberInput = (e) => {
 
 }
 
-// AllClear 함수
-const allClear = () => {
-  prevNumber = 0;
-  nextNumber = 0;
-  totalNumber = 0;
-  operatorState = false;
-
-  operatorBtn.forEach(item => {
-    item.classList.remove('active');
-  });
-
-  inputSpan.forEach(item => {
-    item.innerHTML = '';
-  })
-
-  render();
-}
-
 // 뒤에서부터 숫자 삭제 함수
 const backSpace = () => {
 
@@ -72,6 +54,24 @@ const backSpace = () => {
   }
 }
 
+// AllClear 함수
+const allClear = () => {
+  prevNumber = 0;
+  nextNumber = 0;
+  totalNumber = 0;
+  operatorState = false;
+
+  operatorBtn.forEach(item => {
+    item.classList.remove('active');
+  });
+
+  inputSpan.forEach(item => {
+    item.innerHTML = '';
+  })
+
+  render();
+}
+
 // 연산자 버튼 클릭 함수
 const operator = (e) => {
   let target = e.currentTarget;
@@ -84,8 +84,6 @@ const operator = (e) => {
   target.classList.add('active');
 
   let targetOperator = target.textContent;
-
-  if(targetOperator === '=') return;
 
   prevNumber = Number(totalNumberEl.textContent);
   inputSpan[0].innerHTML = prevNumber;
@@ -153,6 +151,8 @@ const calc = (e) => {
   operatorBtn.forEach(item => {
     item.classList.remove('active');
   });
+
+  operatorState = false;
 }
 
 backBtn.addEventListener('click', backSpace);
